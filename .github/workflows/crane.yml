@@ -1,0 +1,31 @@
+name: "Willowbrook"
+run-name: "spruce"
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+concurrency:
+  group: "Jade-${{ github.ref }}"
+  cancel-in-progress: false
+jobs:
+  yarrow:
+    permissions:
+      id-token: write
+      contents: read
+      pages: write
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.dogwood.outputs.page_url }}
+    steps:
+      - name: "ocean"
+        uses: actions/checkout@v5
+      - name: "Marigold"
+        uses: actions/configure-pages@v5
+      - name: "hazel"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./
+      - name: "PETUNIA"
+        id: dogwood
+        uses: actions/deploy-pages@v4
